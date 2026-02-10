@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 const AboutManifesto = () => {
   // code ထဲကနေ ဒီ state လေးနဲ့ပဲ ထိန်းပေးရုံပါပဲ
-  const [isMyanmar, _] = useState(true);
+  const [isMyanmar] = useState(true);
 
   const content = {
     en: {
@@ -66,7 +66,7 @@ const AboutManifesto = () => {
 
         <div className="flex flex-col lg:flex-row gap-16 items-center mb-32">
           <motion.div
-            key={isMyanmar}
+            key={isMyanmar ? "mm" : "en"}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
