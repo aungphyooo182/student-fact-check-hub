@@ -1,3 +1,6 @@
+import React from "react";
+import { Facebook, Instagram, Twitter, Mail, ArrowUpRight } from "lucide-react";
+
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
@@ -20,7 +23,7 @@ const Footer: React.FC = () => {
         {/* Bottom Section: Legal & Credits */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-slate-500 text-xs tracking-widest uppercase">
-            ©{currentYear} Student Fact Check Hub. All Rights Reserved.
+            ©2026 Student Fact Check Hub. All Rights Reserved.
           </p>
         </div>
       </div>

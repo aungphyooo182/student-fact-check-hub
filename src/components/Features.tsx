@@ -1,10 +1,10 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Zap, Search, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Features = () => {
   // Code ထဲကနေ ဒီ true/false နဲ့ပဲ ထိန်းချုပ်ပါ
-  const [isMyanmar] = useState(true);
+  const [isMyanmar, setIsMyanmar] = useState(true);
 
   const content = {
     en: [

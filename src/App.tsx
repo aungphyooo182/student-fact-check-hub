@@ -15,7 +15,7 @@ const App: React.FC = () => {
         <Navbar />
 
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/student-fact-check-hub" element={<Home />} />
           <Route path="/knowledge" element={<Knowledge />} />
           <Route path="/methodology" element={<Methodology />} />
           <Route path="/about" element={<About />} />
