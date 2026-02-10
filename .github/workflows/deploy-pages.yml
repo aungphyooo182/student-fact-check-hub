@@ -1,9 +1,5 @@
 name: Deploy to GitHub Pages
 
-environment:
-  name: github-pages
-  url: ${{ steps:deployment.outputs.page_url }}
-
 on:
   push:
     branches:
@@ -16,22 +12,34 @@ permissions:
 
 jobs:
   build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "npm"
+
       - name: Install dependencies
         run: npm ci
+
       - name: Build
         run: npm run build
-      - name: Configure Pages
-        uses: actions/configure-pages@v3
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./dist
-      - name: Deploy to Pages
-        uses: actions/deploy-pages@v1
+          path: ./dist # Vite build ထွက်တဲ့ folder ဖြစ်ရပါမယ်
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
